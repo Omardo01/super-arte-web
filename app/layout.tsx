@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Super Arte - Tienda de Artículos de Arte',
   description: 'Tu tienda especializada en materiales y productos artísticos. Desarrollado por Omar Domínguez.',
   keywords: ['arte', 'tienda', 'materiales artísticos', 'pintura', 'dibujo', 'manualidades'],
-  authors: [{ name: 'Omar Dominguez', email: 'omidrumer@gmail.com' }],
+  authors: [{ name: 'Omar Dominguez' }],
   creator: 'Omar Domínguez',
   generator: 'Next.js',
 }

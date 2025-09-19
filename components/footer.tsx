@@ -10,8 +10,8 @@ export function Footer() {
           {/* Logo y descripción */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <Image src="/logo-super-arte.png" alt="Super Arte Logo" width={60} height={20} className="h-8 w-auto" />
-              <span className="text-2xl font-bold text-black">Super Arte</span>
+              <Image src="/logo-super-arte.png" alt="Super Arte Logo" width={60} height={20} className="h-8 w-auto rounded-md" />
+              <span className="text-2xl font-bold text-black font-mono">Super Arte</span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Tu tienda especializada en artículos para todo tipo de arte. Inspirando creatividad desde 2015.

@@ -40,6 +40,7 @@
   --sidebar-ring: oklch(0.6 0.2 240 / 0.5);
 }
 
+
 .dark {
   --background: oklch(0.1 0 0);
   --foreground: oklch(0.95 0 0);
@@ -123,4 +124,34 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* MagicUI Animations */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-gradient {
+  animation: gradient 6s ease infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
 }

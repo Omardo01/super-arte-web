@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Paintbrush, Scissors, Palette, Package, Users, Wrench } from "lucide-react"
+import { Paintbrush, Scissors, Palette, Package, Users, Wrench, Hammer, PartyPopper } from "lucide-react"
+
 
 export function ServicesSection() {
   const services = [
@@ -18,27 +19,21 @@ export function ServicesSection() {
       color: "secondary",
     },
     {
-      icon: Palette,
-      title: "Arte Digital",
-      description: "Tabletas gráficas, stylus, software especializado y accesorios para arte digital.",
-      color: "accent",
-    },
-    {
       icon: Package,
       title: "Kits Completos",
       description: "Sets organizados para principiantes y profesionales con todo lo necesario para empezar.",
       color: "primary",
     },
     {
-      icon: Users,
-      title: "Talleres Grupales",
-      description: "Espacios y materiales para talleres, eventos corporativos y actividades grupales.",
+      icon: Hammer,
+      title: "Materiales variados",
+      description: "Materiales de madera, cristal, velas, unicel, etc.",
       color: "secondary",
     },
     {
-      icon: Wrench,
-      title: "Asesoría Técnica",
-      description: "Consultoría personalizada para elegir los mejores materiales según tu proyecto.",
+      icon: PartyPopper,
+      title: "Articulos para decoración",
+      description: "Todo lo que necesitas para decorar tu fiesta temática",
       color: "accent",
     },
   ]
@@ -51,7 +46,7 @@ export function ServicesSection() {
             A Qué Nos Dedicamos
           </h2>
           <p className="mt-6 text-lg leading-8 text-muted-foreground text-pretty">
-            Ofrecemos una amplia gama de productos y servicios para satisfacer todas tus necesidades artísticas, desde
+            Ofrecemos una amplia gama de productos y cursos para satisfacer todas tus necesidades artísticas, desde
             materiales básicos hasta herramientas profesionales especializadas.
           </p>
         </div>

@@ -42,90 +42,80 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Información de contacto */}
-          <div className="space-y-8">
-            <Card className="border-0 shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold text-foreground">Información de Contacto</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground">Dirección</h4>
-                    <p className="text-muted-foreground">
-                      Av. Principal 123, Centro
-                      <br />
-                      Ciudad, Estado 12345
-                    </p>
-                  </div>
-                </div>
+        {/* Información de contacto */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <Card className="border-0 shadow-lg">
+            <CardContent className="p-6 text-center">
+              <MapPin className="h-8 w-8 text-primary mx-auto mb-3" />
+              <h4 className="font-medium text-foreground mb-2">Dirección</h4>
+              <p className="text-sm text-muted-foreground">
+                Venustiano Carranza 204, Centro<br />
+                Villahermosa, Tabasco
+              </p>
+            </CardContent>
+          </Card>
 
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <Phone className="h-6 w-6 text-secondary" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground">Teléfono</h4>
-                    <p className="text-muted-foreground">
-                      +52 (555) 123-4567
-                      <br />
-                      +52 (555) 765-4321
-                    </p>
-                  </div>
-                </div>
+          <Card className="border-0 shadow-lg">
+            <CardContent className="p-6 text-center">
+              <Phone className="h-8 w-8 text-secondary mx-auto mb-3" />
+              <h4 className="font-medium text-foreground mb-2">Teléfono</h4>
+              <p className="text-sm text-muted-foreground">
+                +52 (993) 123-4567<br />
+                +52 (993) 765-4321
+              </p>
+            </CardContent>
+          </Card>
 
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <Mail className="h-6 w-6 text-accent" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground">Email</h4>
-                    <p className="text-muted-foreground">
-                      info@superarte.com
-                      <br />
-                      cursos@superarte.com
-                    </p>
-                  </div>
-                </div>
+          <Card className="border-0 shadow-lg">
+            <CardContent className="p-6 text-center">
+              <Mail className="h-8 w-8 text-accent mx-auto mb-3" />
+              <h4 className="font-medium text-foreground mb-2">Email</h4>
+              <p className="text-sm text-muted-foreground">
+                info@superarte.com<br />
+                cursos@superarte.com
+              </p>
+            </CardContent>
+          </Card>
 
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <Clock className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground">Horarios</h4>
-                    <div className="text-muted-foreground space-y-1">
-                      <p>Lunes - Viernes: 9:00 - 19:00</p>
-                      <p>Sábados: 9:00 - 17:00</p>
-                      <p>Domingos: 10:00 - 15:00</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+          <Card className="border-0 shadow-lg">
+            <CardContent className="p-6 text-center">
+              <Clock className="h-8 w-8 text-primary mx-auto mb-3" />
+              <h4 className="font-medium text-foreground mb-2">Horarios</h4>
+              <div className="text-sm text-muted-foreground space-y-1">
+                <p>Lun-Vie: 9:00-19:00</p>
+                <p>Sáb: 9:00-17:00</p>
+                <p>Dom: 10:00-15:00</p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
 
-            {/* Mapa placeholder */}
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-0">
-                <div className="aspect-video bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="h-12 w-12 text-primary mx-auto mb-2" />
-                    <p className="text-muted-foreground">Mapa de ubicación</p>
-                    <p className="text-sm text-muted-foreground">Av. Principal 123, Centro</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Formulario de contacto */}
+        {/* Mapa de Google - Ancho completo */}
+        <div className="mb-12">
           <Card className="border-0 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-xl font-semibold text-foreground">Envíanos un Mensaje</CardTitle>
+              <CardTitle className="text-xl font-semibold text-foreground text-center">Nuestra Ubicación</CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              <div className="relative w-full h-0 pb-[50%] rounded-lg overflow-hidden">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.7126032579504!2d-92.91932358550135!3d17.992103233649228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85edd83875a5ec93%3A0x7175205e84a9a8a6!2sSuper%20Arte!5e0!3m2!1ses-419!2smx!4v1758319178522!5m2!1ses-419!2smx"
+                  className="absolute inset-0 w-full h-full border-0"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ubicación de Super Arte"
+                />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Formulario de contacto - Centrado y más compacto */}
+        <div className="flex justify-center">
+          <Card className="border-0 shadow-lg w-full max-w-2xl">
+            <CardHeader>
+              <CardTitle className="text-xl font-semibold text-foreground text-center">Envíanos un Mensaje</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">

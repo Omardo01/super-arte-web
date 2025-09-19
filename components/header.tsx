@@ -2,11 +2,14 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Settings } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
+import { useAuth } from "@/hooks/useAuth"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { userProfile, signOut, isAdmin } = useAuth()
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -16,13 +19,23 @@ export function Header() {
     setIsMenuOpen(false)
   }
 
+  const handleLogout = async () => {
+    try {
+      await signOut()
+      console.log('Usuario desconectado exitosamente')
+      // La redirección se maneja automáticamente por el hook useAuth
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error)
+    }
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <div className="flex items-center space-x-3">
-            <Image src="/logo-super-arte.png" alt="Super Arte Logo" width={180} height={60} className="h-16 w-auto" />
-            <span className="text-3xl font-bold text-black">Super Arte</span>
+            <Image src="/logo-super-arte.png" alt="Super Arte Logo" width={180} height={60} className="h-16 w-auto rounded-lg" />
+            <span className="text-3xl font-bold text-black font-mono">Super Arte</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -57,6 +70,37 @@ export function Header() {
             >
               Contacto
             </button>
+            {/* Botón de Admin - Solo visible para administradores */}
+            {isAdmin && (
+              <Link href="/admin">
+                <Button variant="outline" size="sm" className="ml-4 border-green-300 text-green-700 hover:bg-green-50">
+                  <Settings className="h-4 w-4 mr-2" />
+                  Panel Admin
+                </Button>
+              </Link>
+            )}
+            
+            {/* Botones de login/logout */}
+            {userProfile ? (
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="ml-2 border-red-300 text-red-700 hover:bg-red-50"
+                onClick={handleLogout}
+              >
+                Cerrar Sesión ({userProfile.nombre || userProfile.email})
+              </Button>
+            ) : (
+              <Link href="/auth/login">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="ml-2 border-blue-300 text-blue-700 hover:bg-blue-50"
+                >
+                  Iniciar Sesión
+                </Button>
+              </Link>
+            )}
           </nav>
 
           {/* Mobile menu button */}
@@ -99,6 +143,39 @@ export function Header() {
               >
                 Contacto
               </button>
+              {/* Botón de Admin móvil - Solo visible para administradores */}
+              {isAdmin && (
+                <Link href="/admin" className="block px-3 py-2">
+                  <Button variant="outline" size="sm" className="w-full border-green-300 text-green-700 hover:bg-green-50">
+                    <Settings className="h-4 w-4 mr-2" />
+                    Panel Admin
+                  </Button>
+                </Link>
+              )}
+              
+              {/* Botones de login/logout móvil */}
+              {userProfile ? (
+                <div className="block px-3 py-2">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full border-red-300 text-red-700 hover:bg-red-50"
+                    onClick={handleLogout}
+                  >
+                    Cerrar Sesión ({userProfile.nombre || userProfile.email})
+                  </Button>
+                </div>
+              ) : (
+                <Link href="/auth/login" className="block px-3 py-2">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full border-blue-300 text-blue-700 hover:bg-blue-50"
+                  >
+                    Iniciar Sesión
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
         )}
