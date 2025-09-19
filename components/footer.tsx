@@ -100,10 +100,10 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Contacto</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Av. Principal 123, Centro</li>
-              <li>Ciudad, Estado 12345</li>
-              <li>+52 (555) 123-4567</li>
-              <li>info@superarte.com</li>
+              <li>Venustiano Carranza 204, Centro</li>
+              <li>Villahermosa, Tabasco</li>
+              <li>+52 (993) 3128338</li>
+              <li>superartecentro@gmail.com</li>
             </ul>
             <div className="mt-4">
               <h4 className="font-medium text-foreground mb-2">Horarios</h4>
@@ -111,8 +111,6 @@ export function Footer() {
                 Lun-Vie: 9:00-19:00
                 <br />
                 Sáb: 9:00-17:00
-                <br />
-                Dom: 10:00-15:00
               </p>
             </div>
           </div>

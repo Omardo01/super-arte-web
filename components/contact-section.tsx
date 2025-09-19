@@ -60,8 +60,8 @@ export function ContactSection() {
               <Phone className="h-8 w-8 text-secondary mx-auto mb-3" />
               <h4 className="font-medium text-foreground mb-2">Teléfono</h4>
               <p className="text-sm text-muted-foreground">
-                +52 (993) 123-4567<br />
-                +52 (993) 765-4321
+                +52 (993) 3128338<br />
+                +52 (993) 3832575
               </p>
             </CardContent>
           </Card>
@@ -71,8 +71,8 @@ export function ContactSection() {
               <Mail className="h-8 w-8 text-accent mx-auto mb-3" />
               <h4 className="font-medium text-foreground mb-2">Email</h4>
               <p className="text-sm text-muted-foreground">
-                info@superarte.com<br />
-                cursos@superarte.com
+                superartecentro@gmail.com<br />
+                superarte204@gmail.com
               </p>
             </CardContent>
           </Card>
@@ -84,7 +84,6 @@ export function ContactSection() {
               <div className="text-sm text-muted-foreground space-y-1">
                 <p>Lun-Vie: 9:00-19:00</p>
                 <p>Sáb: 9:00-17:00</p>
-                <p>Dom: 10:00-15:00</p>
               </div>
             </CardContent>
           </Card>
