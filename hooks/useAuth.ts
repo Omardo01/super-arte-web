@@ -12,23 +12,33 @@ export function useAuth() {
   const supabase = createClient()
 
   useEffect(() => {
+    // Solo ejecutar en el cliente
+    if (typeof window === 'undefined') {
+      setLoading(false)
+      return
+    }
+
     // Obtener usuario inicial
     const getUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser()
-      setUser(user)
-      
-      if (user) {
-        // Obtener perfil del usuario
-        const { data: profile } = await supabase
-          .from('usuarios')
-          .select('*')
-          .eq('id', user.id)
-          .single()
+      try {
+        const { data: { user } } = await supabase.auth.getUser()
+        setUser(user)
         
-        setUserProfile(profile)
+        if (user) {
+          // Obtener perfil del usuario
+          const { data: profile } = await supabase
+            .from('usuarios')
+            .select('*')
+            .eq('id', user.id)
+            .single()
+          
+          setUserProfile(profile)
+        }
+      } catch (error) {
+        console.error('Error al obtener usuario:', error)
+      } finally {
+        setLoading(false)
       }
-      
-      setLoading(false)
     }
 
     getUser()
@@ -39,14 +49,18 @@ export function useAuth() {
         setUser(session?.user ?? null)
         
         if (session?.user) {
-          // Obtener perfil actualizado
-          const { data: profile } = await supabase
-            .from('usuarios')
-            .select('*')
-            .eq('id', session.user.id)
-            .single()
-          
-          setUserProfile(profile)
+          try {
+            // Obtener perfil actualizado
+            const { data: profile } = await supabase
+              .from('usuarios')
+              .select('*')
+              .eq('id', session.user.id)
+              .single()
+            
+            setUserProfile(profile)
+          } catch (error) {
+            console.error('Error al obtener perfil:', error)
+          }
         } else {
           setUserProfile(null)
         }

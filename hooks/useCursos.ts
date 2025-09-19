@@ -15,25 +15,30 @@ export function useCursos() {
       setLoading(true)
       setError(null)
       
-      // Verificar variables de entorno
-      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-        throw new Error('Variables de entorno de Supabase no configuradas. Verifica NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY en tu archivo .env.local')
+      // Verificar variables de entorno solo en el cliente
+      if (typeof window !== 'undefined') {
+        if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+          throw new Error('Variables de entorno de Supabase no configuradas. Verifica NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY en tu proyecto de Vercel.')
+        }
+
+        console.log('Intentando conectar a Supabase...')
+        const { data, error } = await supabase
+          .from('cursos')
+          .select('*')
+          .eq('activo', true)
+          .order('created_at', { ascending: false })
+
+        if (error) {
+          console.error('Error de Supabase:', error)
+          throw new Error(`Error de base de datos: ${error.message}`)
+        }
+
+        console.log('Cursos obtenidos:', data?.length || 0)
+        setCursos(data || [])
+      } else {
+        // Durante el prerenderizado, solo establecer loading como false
+        setCursos([])
       }
-
-      console.log('Intentando conectar a Supabase...')
-      const { data, error } = await supabase
-        .from('cursos')
-        .select('*')
-        .eq('activo', true)
-        .order('created_at', { ascending: false })
-
-      if (error) {
-        console.error('Error de Supabase:', error)
-        throw new Error(`Error de base de datos: ${error.message}`)
-      }
-
-      console.log('Cursos obtenidos:', data?.length || 0)
-      setCursos(data || [])
     } catch (err) {
       console.error('Error en fetchCursos:', err)
       if (err instanceof Error) {
