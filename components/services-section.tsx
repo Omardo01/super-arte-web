@@ -1,40 +1,118 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Paintbrush, Scissors, Palette, Package, Users, Wrench, Hammer, PartyPopper } from "lucide-react"
-
 
 export function ServicesSection() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }
+
   const services = [
     {
-      icon: Paintbrush,
-      title: "Pintura y Dibujo",
-      description:
-        "Óleos, acrílicos, acuarelas, lápices, carboncillos y todo tipo de materiales para pintura y dibujo.",
+      emoji: "🎨",
+      title: "Pinturas",
+      description: "Amplia variedad de pinturas acrílicas, óleos, acuarelas y spray para todos tus proyectos artísticos.",
       color: "primary",
     },
     {
-      icon: Scissors,
-      title: "Manualidades",
-      description: "Materiales para scrapbooking, decoración, bisutería y proyectos de manualidades creativas.",
+      emoji: "🎀",
+      title: "Cintas",
+      description: "Cintas decorativas, satinadas, de organza y más para empaques y manualidades especiales.",
       color: "secondary",
     },
     {
-      icon: Package,
-      title: "Kits Completos",
-      description: "Sets organizados para principiantes y profesionales con todo lo necesario para empezar.",
-      color: "primary",
-    },
-    {
-      icon: Hammer,
-      title: "Materiales variados",
-      description: "Materiales de madera, cristal, velas, unicel, etc.",
-      color: "secondary",
-    },
-    {
-      icon: PartyPopper,
-      title: "Articulos para decoración",
-      description: "Todo lo que necesitas para decorar tu fiesta temática",
+      emoji: "🏺",
+      title: "Cerámica",
+      description: "Piezas de cerámica, arcilla y materiales para crear y decorar tus propias obras.",
       color: "accent",
+    },
+    {
+      emoji: "🔧",
+      title: "Herrería",
+      description: "Herramientas y materiales para trabajos de metal, soldadura y proyectos de herrería.",
+      color: "primary",
+    },
+    {
+      emoji: "🧺",
+      title: "Mimbre",
+      description: "Canastas, bases y materiales de mimbre para decoración y artesanías naturales.",
+      color: "secondary",
+    },
+    {
+      emoji: "🌸",
+      title: "Flores",
+      description: "Flores artificiales, secas y de tela en diversos estilos y colores para decoración.",
+      color: "accent",
+    },
+    {
+      emoji: "🕯️",
+      title: "Velas",
+      description: "Velas decorativas, aromas, ceras y moldes para crear tus propias velas personalizadas.",
+      color: "primary",
+    },
+    {
+      emoji: "🔮",
+      title: "Plástico",
+      description: "Artículos de plástico decorativo, acrílicos y materiales para manualidades versátiles.",
+      color: "secondary",
+    },
+    {
+      emoji: "💐",
+      title: "Arreglos Terminados",
+      description: "Arreglos florales y decorativos listos para regalar o decorar cualquier ocasión especial.",
+      color: "accent",
+    },
+    {
+      emoji: "🪵",
+      title: "Madera",
+      description: "Bases de madera, MDF, listones y materiales para proyectos de carpintería y decoración.",
+      color: "primary",
+    },
+    {
+      emoji: "🧵",
+      title: "Cintas y Cordones",
+      description: "Cordones decorativos, hilos, yute y listones para costuras y decoraciones elaboradas.",
+      color: "secondary",
+    },
+    {
+      emoji: "💎",
+      title: "Cristales",
+      description: "Cristales decorativos, pedrería, diamantina y materiales brillantes para tus creaciones.",
+      color: "accent",
+    },
+    {
+      emoji: "🧶",
+      title: "Mercería",
+      description: "Hilos, agujas, botones, cierres y todos los accesorios para costura y confección.",
+      color: "primary",
+    },
+    {
+      emoji: "☁️",
+      title: "Unicel",
+      description: "Figuras y bases de unicel en diversos tamaños para manualidades y decoración ligera.",
+      color: "secondary",
+    },
+    {
+      emoji: "🎄",
+      title: "Navidad",
+      description: "Decoración navideña, esferas, luces y todo para celebrar la temporada más festiva del año.",
+      color: "accent",
+    },
+    {
+      emoji: "✨",
+      title: "Novedades",
+      description: "Últimas tendencias en decoración y manualidades, productos innovadores y únicos.",
+      color: "primary",
+    },
+    {
+      emoji: "🎪",
+      title: "Juguetería",
+      description: "Juguetes, piñatas y artículos para fiestas infantiles y entretenimiento familiar.",
+      color: "secondary",
     },
   ]
 
@@ -43,15 +121,11 @@ export function ServicesSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
-            A Qué Nos Dedicamos
+            Nuestros departamentos:
           </h2>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground text-pretty">
-            Ofrecemos una amplia gama de productos y cursos para satisfacer todas tus necesidades artísticas, desde
-            materiales básicos hasta herramientas profesionales especializadas.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
               <CardHeader className="text-center pb-4">
@@ -64,32 +138,12 @@ export function ServicesSection() {
                         : "bg-accent/10"
                   } group-hover:scale-110 transition-transform duration-300`}
                 >
-                  <service.icon
-                    className={`h-8 w-8 ${
-                      service.color === "primary"
-                        ? "text-primary"
-                        : service.color === "secondary"
-                          ? "text-secondary"
-                          : "text-accent"
-                    }`}
-                  />
+                  <span className="text-4xl">{service.emoji}</span>
                 </div>
-                <CardTitle className="text-xl font-semibold text-foreground">{service.title}</CardTitle>
+                <CardTitle className="text-lg font-semibold text-foreground">{service.title}</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-muted-foreground leading-relaxed mb-6 text-pretty">{service.description}</p>
-                <Button
-                  variant="outline"
-                  className={`${
-                    service.color === "primary"
-                      ? "border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                      : service.color === "secondary"
-                        ? "border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
-                        : "border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                  }`}
-                >
-                  Más Información
-                </Button>
+                <p className="text-muted-foreground text-sm leading-relaxed text-pretty">{service.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -99,11 +153,10 @@ export function ServicesSection() {
           <div className="bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-foreground mb-4">¿Necesitas algo específico?</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-pretty">
-              Si no encuentras lo que buscas, contáctanos. Trabajamos con proveedores especializados para conseguir
-              materiales únicos y herramientas específicas para tu proyecto.
+              Si no encuentras lo que buscas, contáctanos. Hacemos envíos a municipios de tabasco y a toda la republica mexicana.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Solicitar Cotización
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => scrollToSection("contacto")}>
+              Contactar
             </Button>
           </div>
         </div>

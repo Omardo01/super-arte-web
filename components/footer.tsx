@@ -1,3 +1,4 @@
+"use client"
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
@@ -10,24 +11,19 @@ export function Footer() {
           {/* Logo y descripción */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <Image src="/logo-super-arte.png" alt="Super Arte Logo" width={60} height={20} className="h-8 w-auto rounded-md" />
+              <Image src="/logo-fav.png" alt="Super Arte Logo" width={60} height={20} className="h-8 w-auto rounded-md" />
               <span className="text-2xl font-bold text-black font-mono">Super Arte</span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Tu tienda especializada en artículos para todo tipo de arte. Inspirando creatividad desde 2015.
+            Tu tienda especializada en artículos para manualidades y celebraciones. Desde materiales básicos hasta herramientas
+            profesionales, tenemos todo lo que necesitas para dar vida a tu creatividad y acompañarte en tus momentos importantes.
             </p>
             <div className="flex space-x-2">
-              <Button size="icon" variant="ghost" className="hover:text-primary">
+              <Button size="icon" variant="ghost" className="hover:text-primary" onClick={() => window.open("https://www.facebook.com/superartevillahermosa", "_blank")}>
                 <Facebook className="h-5 w-5" />
               </Button>
-              <Button size="icon" variant="ghost" className="hover:text-secondary">
+              <Button size="icon" variant="ghost" className="hover:text-secondary" onClick={() => window.open("https://www.instagram.com/superarte_villahermosa", "_blank")}>
                 <Instagram className="h-5 w-5" />
-              </Button>
-              <Button size="icon" variant="ghost" className="hover:text-accent">
-                <Twitter className="h-5 w-5" />
-              </Button>
-              <Button size="icon" variant="ghost" className="hover:text-primary">
-                <Youtube className="h-5 w-5" />
               </Button>
             </div>
           </div>
@@ -118,14 +114,7 @@ export function Footer() {
 
         <div className="border-t mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">© 2025 Super Arte. Todos los derechos reservados.</p>
-          <div className="flex space-x-4 mt-4 sm:mt-0">
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Política de Privacidad
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Términos de Servicio
-            </a>
-          </div>
+          
         </div>
       </div>
     </footer>

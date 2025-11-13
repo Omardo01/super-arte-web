@@ -12,7 +12,7 @@ export function AboutSection() {
     {
       icon: Users,
       title: "Comunidad Creativa",
-      description: "Creamos un espacio donde todos pueden crecer y aprender.",
+      description: "Tenemos cursos durante todo el año donde todos pueden crear y aprender.",
     },
     {
       icon: Award,
@@ -32,8 +32,8 @@ export function AboutSection() {
         <div className="mx-auto max-w-4xl text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">Quiénes Somos</h2>
           <p className="mt-6 text-lg leading-8 text-muted-foreground text-pretty">
-            SUPER ARTE nació de la pasión por el arte y el deseo de hacer accesibles los mejores materiales artísticos
-            para todos. Desde 2001, hemos sido el punto de encuentro para personas con su creatividad en toda la
+            SUPER ARTE nació de la pasión por el arte y el deseo de hacer accesibles los mejores materiales artísticos, 
+            para celebraciones y manualidades. Desde 1974, hemos sido el punto de encuentro para personas con su creatividad en toda la
             región.
           </p>
         </div>
@@ -61,8 +61,7 @@ export function AboutSection() {
                 una comunidad donde la creatividad no tenga límites.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Creemos que el arte tiene el poder de transformar vidas y comunidades, y estamos aquí para ser parte de
-                tu viaje creativo, desde los primeros trazos hasta las obras maestras.
+                Los productos de super arte nos acompañan en momentos importantes como fiestas, comuniones, bautizos, bodas, etc.
               </p>
             </div>
             <div className="relative">
@@ -70,7 +69,7 @@ export function AboutSection() {
                 <div className="text-center">
                   <div className="text-4xl font-bold text-primary mb-2">
                     <NumberTicker 
-                      value={20} 
+                      value={50} 
                       className="text-4xl font-bold text-primary"
                       delay={0.1}
                     />
@@ -79,16 +78,16 @@ export function AboutSection() {
                   <div className="text-sm text-muted-foreground mb-4">Años de experiencia</div>
                   <div className="text-4xl font-bold text-secondary mb-2">
                     <NumberTicker 
-                      value={50000} 
+                      value={1200000} 
                       className="text-4xl font-bold text-secondary"
-                      delay={0.1}
+                      delay={0}
                     />
                     +
                   </div>
                   <div className="text-sm text-muted-foreground mb-4">Clientes satisfechos</div>
                   <div className="text-4xl font-bold text-accent mb-2">
                     <NumberTicker 
-                      value={20000} 
+                      value={50000} 
                       className="text-4xl font-bold text-accent"
                       delay={0.1}
                     />

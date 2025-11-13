@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Omar Dominguez' }],
   creator: 'Omar Domínguez',
   generator: 'Next.js',
+  icons: {
+    icon: '/logo-fav.png',
+    shortcut: '/logo-fav.png',
+    apple: '/logo-fav.png',
+  },
 }
 
 export default function RootLayout({

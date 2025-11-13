@@ -3,27 +3,69 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Skeleton } from "@/components/ui/skeleton"
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Calendar, Clock, Users, Star, Filter, Loader2 } from "lucide-react"
-import { useCursos } from "@/hooks/useCursos"
+import { Calendar, Clock, Users, Star, Filter } from "lucide-react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 
+// Datos estáticos de cursos
+const cursosData = [
+  {
+    id: "1",
+    titulo: "Pintura Acrílica para Principiantes",
+    descripcion: "Aprende las técnicas básicas de pintura acrílica, desde mezcla de colores hasta pinceladas fundamentales. Ideal para quienes están comenzando su camino artístico.",
+    categoria: "Pintura",
+    nivel: "principiante",
+    precio: 200,
+    duracion: "4 semanas (2 horas por sesión)",
+    fecha_inicio: "2025-12-01",
+    fecha_fin: "2025-12-29",
+    instructor: "Maestra Elena Rodríguez",
+    max_participantes: 15,
+    participantes_actuales: 8,
+  },
+  {
+    id: "2",
+    titulo: "Decoración con Flores Artificiales",
+    descripcion: "Crea hermosos arreglos florales con técnicas profesionales. Aprende a combinar colores, texturas y formas para ocasiones especiales.",
+    categoria: "Decoración",
+    nivel: "intermedio",
+    precio: 120,
+    duracion: "3 semanas (2.5 horas por sesión)",
+    fecha_inicio: "2025-12-08",
+    fecha_fin: "2025-12-22",
+    instructor: "Maestra Carmen López",
+    max_participantes: 12,
+    participantes_actuales: 5,
+  },
+  {
+    id: "3",
+    titulo: "Manualidades con Madera Avanzado",
+    descripcion: "Técnicas avanzadas de trabajo en madera, incluyendo tallado, lijado y acabados profesionales. Crea piezas decorativas únicas.",
+    categoria: "Manualidades",
+    nivel: "avanzado",
+    precio: 200,
+    duracion: "6 semanas (3 horas por sesión)",
+    fecha_inicio: "2025-12-15",
+    fecha_fin: "2026-01-26",
+    instructor: "Maestro Roberto Martínez",
+    max_participantes: 10,
+    participantes_actuales: 10,
+  },
+]
+
 export function CoursesSection() {
-  const { cursos, loading, error } = useCursos()
   const [filtroNivel, setFiltroNivel] = useState<string>("todos")
   const [filtroCategoria, setFiltroCategoria] = useState<string>("todos")
 
   // Filtrar cursos
-  const cursosFiltrados = cursos.filter(curso => {
+  const cursosFiltrados = cursosData.filter(curso => {
     const matchNivel = filtroNivel === "todos" || curso.nivel === filtroNivel
     const matchCategoria = filtroCategoria === "todos" || curso.categoria === filtroCategoria
     return matchNivel && matchCategoria
   })
 
   // Obtener categorías únicas
-  const categorias = [...new Set(cursos.map(curso => curso.categoria))]
+  const categorias = [...new Set(cursosData.map(curso => curso.categoria))]
   const niveles = ["principiante", "intermedio", "avanzado"]
 
   const getLevelColor = (level: string) => {
@@ -126,54 +168,13 @@ export function CoursesSection() {
           </select>
         </motion.div>
 
-        {/* Loading State */}
-        {loading && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[...Array(6)].map((_, i) => (
-              <Card key={i} className="border-0 shadow-lg">
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-2">
-                    <Skeleton className="h-6 w-20" />
-                    <Skeleton className="h-8 w-16" />
-                  </div>
-                  <Skeleton className="h-6 w-3/4" />
-                </CardHeader>
-                <CardContent>
-                  <Skeleton className="h-4 w-full mb-2" />
-                  <Skeleton className="h-4 w-full mb-2" />
-                  <Skeleton className="h-4 w-2/3 mb-4" />
-                  <div className="space-y-2 mb-6">
-                    <Skeleton className="h-4 w-1/2" />
-                    <Skeleton className="h-4 w-2/3" />
-                    <Skeleton className="h-4 w-1/3" />
-                  </div>
-                  <Skeleton className="h-10 w-full" />
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
-
-        {/* Error State */}
-        {error && (
-          <div className="text-center py-8">
-            <Alert className="max-w-md mx-auto">
-              <AlertDescription>
-                Error al cargar los cursos: {error}
-              </AlertDescription>
-            </Alert>
-          </div>
-        )}
-
         {/* Cursos */}
-        {!loading && !error && (
-          <>
-            {cursosFiltrados.length === 0 ? (
-              <div className="text-center py-8">
-                <p className="text-muted-foreground">No hay cursos disponibles con los filtros seleccionados.</p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {cursosFiltrados.length === 0 ? (
+          <div className="text-center py-8">
+            <p className="text-muted-foreground">No hay cursos disponibles con los filtros seleccionados.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {cursosFiltrados.map((curso, index) => {
                   const colorCurso = getColorByCurso(index)
                   const cuposDisponibles = getCuposDisponibles(curso.max_participantes, curso.participantes_actuales)
@@ -249,8 +250,6 @@ export function CoursesSection() {
                   )
                 })}
               </div>
-            )}
-          </>
         )}
 
         <div className="mt-16">
@@ -268,10 +267,6 @@ export function CoursesSection() {
                     Grupos pequeños para atención personalizada
                   </li>
                   <li className="flex items-center">
-                    <Star className="h-5 w-5 text-accent mr-3" />
-                    Materiales incluidos en el precio del curso
-                  </li>
-                  <li className="flex items-center">
                     <Star className="h-5 w-5 text-primary mr-3" />
                     Certificado de participación al finalizar
                   </li>
@@ -282,12 +277,12 @@ export function CoursesSection() {
                   <h4 className="text-xl font-semibold text-foreground mb-4">Estadísticas</h4>
                   <div className="space-y-4">
                     <div>
-                      <div className="text-3xl font-bold text-primary mb-1">{cursos.length}</div>
+                      <div className="text-3xl font-bold text-primary mb-1">{cursosData.length}</div>
                       <p className="text-sm text-muted-foreground">Cursos disponibles</p>
                     </div>
                     <div>
                       <div className="text-2xl font-bold text-secondary mb-1">
-                        {cursos.reduce((total, curso) => total + (curso.max_participantes - curso.participantes_actuales), 0)}
+                        {cursosData.reduce((total, curso) => total + (curso.max_participantes - curso.participantes_actuales), 0)}
                       </div>
                       <p className="text-sm text-muted-foreground">Cupos totales disponibles</p>
                     </div>

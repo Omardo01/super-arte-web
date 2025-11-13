@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ShimmerButton } from "@/components/ui/shimmer-button"
 import TypingAnimation from "@/components/ui/typing-animation"
 import WordRotate from "@/components/ui/word-rotate"
-import { Palette, Brush, Sparkles } from "lucide-react"
+import { Palette, Brush, Sparkles, Facebook, Instagram } from "lucide-react"
 import { motion } from "framer-motion"
 
 export function HeroSection() {
@@ -18,7 +18,7 @@ export function HeroSection() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/10 py-20 sm:py-32"
+      className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/10 py-10 sm:py-12"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
@@ -71,8 +71,8 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Tu tienda especializada en artículos para todo tipo de arte. Desde materiales básicos hasta herramientas
-            profesionales, tenemos todo lo que necesitas para dar vida a tu creatividad.
+            Tu tienda especializada en artículos para manualidades y celebraciones. Desde materiales básicos hasta herramientas
+            profesionales, tenemos todo lo que necesitas para dar vida a tu creatividad y acompañarte en tus momentos importantes.
           </motion.p>
 
           <motion.div 
@@ -107,6 +107,44 @@ export function HeroSection() {
                 Ver Cursos
               </Button>
             </motion.div>
+          </motion.div>
+
+          {/* Social Media Buttons */}
+          <motion.div 
+            className="mt-8 flex flex-col items-center gap-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+          >
+            <p className="text-sm text-muted-foreground font-medium">Síguenos en:</p>
+            <div className="flex space-x-3">
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Button 
+                  size="icon" 
+                  variant="outline" 
+                  className="hover:bg-primary hover:text-primary-foreground border-primary/50 hover:border-primary transition-all" 
+                  onClick={() => window.open("https://www.facebook.com/superartevillahermosa", "_blank")}
+                >
+                  <Facebook className="h-5 w-5" />
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Button 
+                  size="icon" 
+                  variant="outline" 
+                  className="hover:bg-secondary hover:text-secondary-foreground border-secondary/50 hover:border-secondary transition-all" 
+                  onClick={() => window.open("https://www.instagram.com/superarte_villahermosa", "_blank")}
+                >
+                  <Instagram className="h-5 w-5" />
+                </Button>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
