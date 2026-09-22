@@ -40,9 +40,71 @@ interface Curso {
 // Datos de cursos actualizados con los folletos proporcionados
 const cursosData: Curso[] = [
   {
+    id: "jabones-artesanales",
+    titulo: "Jabones Artesanales",
+    subtitulo: "Aprende a elaborar tus propios jabones naturales",
+    descripcion:
+      "Taller práctico donde aprenderás a elaborar jabones artesanales con ingredientes naturales, esencias relajantes, flores secas y texturas únicas. ¡Ideal para uso personal o para emprender!",
+    categoria: "Jabones",
+    precio: 80,
+    precioTexto: "$80.00 MXN clase + material",
+    duracion: "1 sesión (3 horas)",
+    fechas: "31 de Octubre",
+    horario: "De 10:00 a.m. a 1:00 p.m.",
+    instructor: "Super Arte",
+    direccion: "Carranza 204 Villahermosa, Tabasco",
+    imagen: "/cursos/jabones-artesanales.jpg",
+    whatsapp: "9933832575",
+    whatsappMensaje:
+      "¡Hola Super Arte! Me gustaría inscribirme o pedir informes para el taller de 'Jabones Artesanales' del 31 de octubre.",
+    destacado: "Jabones Naturales",
+    materiales: "Costo de clase más material disponible en tienda",
+  },
+  {
+    id: "velas-molde-recipiente-octubre",
+    titulo: "Velas en Molde y Recipiente",
+    subtitulo: "Ven a aprender con Alex",
+    descripcion:
+      "Aprende a elaborar hermosas velas artesanales en molde y recipiente. Técnicas decorativas, combinación de aromas y flores secas para crear piezas únicas.",
+    categoria: "Velas",
+    precio: 150,
+    precioTexto: "$150.00 MXN",
+    duracion: "2 días (Viernes y Sábado)",
+    fechas: "16 y 17 de Octubre",
+    horario: "Viernes de 3:00 a 6:00 p.m. y Sábado de 10:00 a 1:00 p.m.",
+    instructor: "Alex",
+    direccion: "Carranza 204 Centro, Villahermosa, Tabasco",
+    imagen: "/cursos/velas-alex.jpg",
+    whatsapp: "9933832575",
+    whatsappMensaje:
+      "¡Hola Super Arte! Me interesa inscribirme al curso de 'Velas en molde y recipiente' con Alex (16 y 17 de Octubre).",
+    destacado: "Nueva Fecha • Con Alex",
+  },
+  {
+    id: "monos-diademas-catrina-7-14",
+    titulo: "Moños, Flores de Satín y Diademas de Catrina",
+    subtitulo: "¡La clase es gratis en la compra del material!",
+    descripcion:
+      "Aprende a confeccionar espectaculares diademas de Catrina con flores de satín y elegantes moños artesanales. Turno matutino de 11:00 a 1:00 p.m.",
+    categoria: "Moños y Accesorios",
+    precio: 0,
+    precioTexto: "¡Clase Gratis con Material!",
+    duracion: "2 sesiones (2 horas c/u)",
+    fechas: "7 y 14 de Octubre",
+    horario: "De 11:00 a.m. a 1:00 p.m.",
+    instructor: "Super Arte",
+    direccion: "Carranza 204 Centro, Villahermosa, Tab.",
+    imagen: "/cursos/diademas-catrina-7-14.jpg",
+    whatsapp: "9933832575",
+    whatsappMensaje:
+      "¡Hola Super Arte! Me interesa apartar mi lugar para la clase de 'Moños, flores de satín y diademas de Catrina' (7 y 14 de Octubre de 11:00 a 1:00).",
+    destacado: "Horario Matutino • ¡Gratis!",
+    materiales: "Clase gratis al adquirir el material en tienda",
+  },
+  {
     id: "velas-molde-recipiente",
     titulo: "Velas en Molde y Recipiente",
-    subtitulo: "Ven a aprender",
+    subtitulo: "Ven a aprender con Maryana",
     descripcion:
       "Aprende a elaborar hermosas velas artesanales en molde y recipiente. Técnicas decorativas, combinación de aromas y flores secas para crear piezas únicas.",
     categoria: "Velas",
