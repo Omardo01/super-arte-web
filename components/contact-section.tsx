@@ -49,7 +49,7 @@ export function ContactSection() {
               <MapPin className="h-8 w-8 text-primary mx-auto mb-3" />
               <h4 className="font-medium text-foreground mb-2">Dirección</h4>
               <p className="text-sm text-muted-foreground">
-                Venustiano Carranza 204, Centro<br />
+                Venustiano Carranza #204, Col. Centro<br />
                 Villahermosa, Tabasco
               </p>
             </CardContent>
@@ -58,11 +58,19 @@ export function ContactSection() {
           <Card className="border-0 shadow-lg">
             <CardContent className="p-6 text-center">
               <Phone className="h-8 w-8 text-secondary mx-auto mb-3" />
-              <h4 className="font-medium text-foreground mb-2">Teléfono</h4>
-              <p className="text-sm text-muted-foreground">
-                +52 (993) 3128338<br />
-                +52 (993) 3832575
+              <h4 className="font-medium text-foreground mb-2">WhatsApp y Teléfono</h4>
+              <p className="text-sm text-muted-foreground mb-3">
+                <strong>WhatsApp:</strong> 99 33 83 25 75<br />
+                <strong>Teléfono:</strong> +52 (993) 3128338
               </p>
+              <a
+                href="https://wa.me/529933832575?text=Hola%20Super%20Arte,%20quisiera%20pedir%20informaci%C3%B3n"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-semibold shadow transition-all"
+              >
+                Chatear por WhatsApp
+              </a>
             </CardContent>
           </Card>
 
